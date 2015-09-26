@@ -2,7 +2,8 @@ class UsersController < ApplicationController
     def new
         @user = User.new(user_params)
         if @user.save
-            render status: 200, json: { username: @user.username }
+            @user.change_token!
+            render status: 200, json: { username: @user.username, auth_token: user.auth_token }
         else
             render status: 500, json: { error: 'Could not create user!' }
         end

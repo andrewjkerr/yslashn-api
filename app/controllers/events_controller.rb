@@ -1,4 +1,18 @@
 class EventsController < ApplicationController
+    def show
+        @event = Event.find(params['event_id'])
+        return render status: 404, json: { error: 'Not found!' } if @event.nil?
+        render status: 200, json: { event: @event }
+    end
+
+    def show_by_user
+        user = User.find_by(username: params['username'])
+        return render status: 404, json: { error: 'Not found!' } if user.nil?
+
+        @events = user.events
+        render status: 200, json: { username: user.username, events: @events }
+    end
+
     def new
         user = User.find_by(auth_token: params['auth_token'])
         return render status: 401, json: { error: 'Not authorized!' } if user.nil?
