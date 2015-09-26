@@ -7,15 +7,19 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
     has_secure_password
 
+    has_many :events
+
+    def change_token!
+        self.auth_token = generate_token
+        self.save!
+    end
+
+    private
+
     def generate_token
         loop do
             random_token = SecureRandom.urlsafe_base64(nil, false)
             break random_token unless User.exists?(auth_token: random_token)
         end
-    end
-
-    def change_token!
-        self.auth_token = generate_token
-        self.save!
     end
 end
