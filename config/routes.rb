@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     post 'events' => 'events#new'
 
     post 'questions' => 'questions#new'
+
+    post 'answers' => 'answers#new'
 end

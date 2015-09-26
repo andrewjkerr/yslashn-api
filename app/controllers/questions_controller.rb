@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
                 auth_token: user.auth_token
             }
         else
-            render status: 500, json: { error: 'Could not create event!' }
+            render status: 500, json: { error: 'Could not create question!' }
         end
     end
 

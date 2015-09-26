@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
     has_many :events
     has_many :questions
+    has_many :answers
 
     def change_token!
         self.auth_token = generate_token
