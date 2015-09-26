@@ -61,7 +61,7 @@ Once you have a user, you can start making events. This is done by sending the f
 
 ### Fetching events
 
-You can fetch events by either using (GET) `/events/:event_id` for an individual event or by sending a `username` to (GET) `/:username/events` to get a list of events for a username.
+You can fetch events by either using (GET) `/events/:event_id` for an individual event or by sending a `username` to (GET) `/:username/events` to get a list of events for a username. You can also now fetch _all_ events with (GET) `/events`.
 
 ### Making questions
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get ':username/questions'           => 'questions#show_by_user'
 
     # Events
+    get 'events'                        => 'events#show'
     get 'events/:event_id'              => 'events#show'
     get 'events/:event_id/questions'    => 'questions#show_by_event'
     post 'events'                       => 'events#new'

@@ -1,8 +1,13 @@
 class EventsController < ApplicationController
     def show
-        @event = Event.find(params['event_id'])
-        return render status: 404, json: { error: 'Not found!' } if @event.nil?
-        render status: 200, json: { event: @event }
+        if (params['event_id'].nil?)
+            @events = Event.all
+            render status: 200, json: { events: @events }
+        else
+            @event = Event.find(params['event_id'])
+            return render status: 404, json: { error: 'Not found!' } if @event.nil?
+            render status: 200, json: { event: @event }
+        end
     end
 
     def show_by_user
