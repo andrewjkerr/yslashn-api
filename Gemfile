@@ -7,9 +7,10 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+gem 'pg', '~> 0.18.1'
 
-gem 'sqlite3'
-
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
 
 
 # To use ActiveModel has_secure_password
