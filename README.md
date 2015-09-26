@@ -2,6 +2,8 @@
 
 A Rails API for a yes/no answer crowdsourcing app.
 
+__DO NOT COMMIT FRONT END FILES HERE! THIS IS AN API REPO! PLEASE MAKE ANOTHER ONE OR ASK ME TO MAKE ANOTHER REPO FOR THE FRONT END!__
+
 ## Documentation
 
 Nothing like some quick 6:30am documentation.
