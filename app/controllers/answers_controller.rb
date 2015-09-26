@@ -35,6 +35,7 @@ class AnswersController < ApplicationController
         @answer = Answer.new(answer_params(question, user))
         if @answer.save
             user.change_token!
+            user.add_karma!('answer')
             render status: 200, json: {
                 answer_id: @answer.id,
                 answer_is_yes: @answer.is_yes?,

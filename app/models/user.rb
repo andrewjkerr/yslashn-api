@@ -16,6 +16,18 @@ class User < ActiveRecord::Base
         self.save!
     end
 
+    def add_karma!(reason)
+        case reason
+        when 'event'
+            self.karma += 3
+        when 'answer'
+            self.karma += 2
+        when 'question'
+            self.karma += 1
+        end
+        self.save!
+    end
+
     private
 
     def generate_token

@@ -31,6 +31,7 @@ class QuestionsController < ApplicationController
         @question = Question.new(question_params(event, user))
         if @question.save
             user.change_token!
+            user.add_karma!('question')
             render status: 200, json: {
                 question_id: @question.id,
                 question_text: @question.text,

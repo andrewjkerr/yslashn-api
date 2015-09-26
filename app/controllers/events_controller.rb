@@ -25,6 +25,7 @@ class EventsController < ApplicationController
         @event = Event.new(event_params(user))
         if @event.save
             user.change_token!
+            user.add_karma!('event')
             render status: 200, json: { 
                 event_id: @event.id,
                 event_name: @event.name,
