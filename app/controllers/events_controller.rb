@@ -7,7 +7,8 @@ class EventsController < ApplicationController
         if @event.save
             user.change_token!
             render status: 200, json: { 
-                event: @event.name,
+                event_id: @event.id,
+                event_name: @event.name,
                 username: user.username,
                 auth_token: user.auth_token
             }

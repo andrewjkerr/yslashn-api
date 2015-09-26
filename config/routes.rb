@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     post 'users/exchange' => 'users#auth_token_exchange'
 
     post 'events' => 'events#new'
+
+    post 'questions' => 'questions#new'
 end
